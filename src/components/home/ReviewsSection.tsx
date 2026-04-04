@@ -51,7 +51,7 @@ const ReviewsSection = () => {
         <div className="relative group">
           <button
             onClick={() => scroll("left")}
-            className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-background/95 text-foreground border border-border shadow-lg rounded-full hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none"
+            className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-background/95 text-foreground border border-border shadow-lg rounded-full hover:bg-primary hover:text-primary-foreground active:scale-95 transition-all duration-200 focus:outline-none"
             aria-label="Previous review"
           >
             <ChevronLeft size={20} />
@@ -59,7 +59,7 @@ const ReviewsSection = () => {
           
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-background/95 text-foreground border border-border shadow-lg rounded-full hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none"
+            className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-background/95 text-foreground border border-border shadow-lg rounded-full hover:bg-primary hover:text-primary-foreground active:scale-95 transition-all duration-200 focus:outline-none"
             aria-label="Next review"
           >
             <ChevronRight size={20} />

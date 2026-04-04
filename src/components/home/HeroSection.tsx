@@ -48,13 +48,13 @@ const HeroSection = () => (
       >
         <Link
           to="/contact"
-          className="font-heading text-sm tracking-widest bg-primary text-primary-foreground px-8 py-3.5 rounded-sm hover:bg-primary/90 active:scale-95 transition-all duration-200"
+          className="font-heading text-sm tracking-widest bg-primary text-primary-foreground px-8 py-3.5 rounded-sm hover:bg-primary/90 active:scale-95 transition-all duration-200 ripple"
         >
           BOOK A SESSION
         </Link>
         <Link
           to="/setups"
-          className="font-heading text-sm tracking-widest border border-foreground/30 text-foreground px-8 py-3.5 rounded-sm hover:border-primary hover:text-primary active:scale-95 transition-all duration-200"
+          className="font-heading text-sm tracking-widest border border-foreground/30 text-foreground px-8 py-3.5 rounded-sm hover:border-primary hover:text-primary active:scale-95 transition-all duration-200 ripple"
         >
           EXPLORE SETUPS
         </Link>

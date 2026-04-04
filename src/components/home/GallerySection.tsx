@@ -42,7 +42,7 @@ const GallerySection = () => (
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className={`relative overflow-hidden rounded-lg group cursor-pointer ${
+            className={`relative overflow-hidden rounded-lg group cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-200 ${
               i === 0 || i === 5 ? "md:col-span-2 md:row-span-2" : ""
             }`}
           >
