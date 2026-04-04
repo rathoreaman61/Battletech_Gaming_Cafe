@@ -16,7 +16,7 @@ Disallow: /search
 Disallow: /private/
 
 # XML Sitemap location for search engines
-Sitemap: https://battletechgaming.com/sitemap.xml
+Sitemap: https://rathoreaman61.github.io/Battletech-Gaming-Cafe/sitemap.xml
 
 # Google-specific
 User-agent: Googlebot
