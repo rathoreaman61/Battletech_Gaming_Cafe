@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const base = process.env.DEPLOY_ENV === "github" ? "/Battletech-Gaming-Cafe/" : "/";
+  const base = "/";
 
   return {
     base,

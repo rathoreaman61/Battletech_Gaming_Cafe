@@ -17,7 +17,7 @@ import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
-const basename = import.meta.env.DEV ? "/" : "/Battletech-Gaming-Cafe/";
+const basename = "/";
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {

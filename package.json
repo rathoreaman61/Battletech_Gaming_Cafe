@@ -2,19 +2,16 @@
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://rathoreaman61.github.io/Battletech-Gaming-Cafe",
+  "homepage": "https://battletech-gaming-cafe.vercel.app",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "build:github": "DEPLOY_ENV=github vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "predeploy": "npm run build:github",
-    "deploy": "gh-pages -d dist"
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

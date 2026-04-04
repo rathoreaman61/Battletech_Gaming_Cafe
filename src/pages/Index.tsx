@@ -14,7 +14,7 @@ const Index = () => {
   useEffect(() => {
     updatePageSEO({
       ...pageSEOConfig.home,
-      canonicalUrl: "https://battletechgaming.com/",
+      canonicalUrl: "https://battletech-gaming-cafe.vercel.app/",
     });
   }, []);
 
