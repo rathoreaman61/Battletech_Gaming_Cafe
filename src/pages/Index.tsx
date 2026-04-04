@@ -1,0 +1,25 @@
+import HeroSection from "@/components/home/HeroSection";
+import StatsBar from "@/components/home/StatsBar";
+import AboutSection from "@/components/home/AboutSection";
+import SetupsSection from "@/components/home/SetupsSection";
+import GamesLibrary from "@/components/home/GamesLibrary";
+import PricingSection from "@/components/home/PricingSection";
+import ReviewsSection from "@/components/home/ReviewsSection";
+import GallerySection from "@/components/home/GallerySection";
+import LocationSection from "@/components/home/LocationSection";
+
+const Index = () => (
+  <>
+    <HeroSection />
+    <StatsBar />
+    <AboutSection />
+    <SetupsSection />
+    <GamesLibrary />
+    <PricingSection />
+    <ReviewsSection />
+    <GallerySection />
+    <LocationSection />
+  </>
+);
+
+export default Index;
