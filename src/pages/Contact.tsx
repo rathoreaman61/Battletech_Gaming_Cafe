@@ -1,10 +1,18 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Clock, Facebook, ExternalLink, Send } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { updatePageSEO, pageSEOConfig } from "@/lib/seo";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", message: "", date: "" });
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    updatePageSEO({
+      ...pageSEOConfig.contact,
+      canonicalUrl: "https://battletechgaming.com/contact",
+    });
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,14 +28,35 @@ const ContactPage = () => {
       {/* Header */}
       <section className="py-16 md:py-24 bg-surface-dark carbon-texture">
         <div className="container mx-auto px-4 md:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="section-label mb-3">GET IN TOUCH</p>
-            <h1 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="section-label mb-3"
+            >
+              GET IN TOUCH
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.55, ease: "easeOut" }}
+              className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4"
+            >
               CONTACT US
-            </h1>
-            <p className="text-muted-foreground max-w-lg mx-auto">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.18, duration: 0.55, ease: "easeOut" }}
+              className="text-muted-foreground max-w-lg mx-auto"
+            >
               Book a session, ask about group rates, or just say hello.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>

@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Monitor, Cpu, Gamepad2, Wifi, Wind, Armchair } from "lucide-react";
 import { Link } from "react-router-dom";
 import monitorImg from "@/assets/monitor-game.jpg";
 import keyboardImg from "@/assets/keyboard-closeup.jpg";
 import gamingPcImg from "@/assets/gaming-pc.jpg";
+import { updatePageSEO, pageSEOConfig } from "@/lib/seo";
 
 const rigs = [
   {
@@ -40,19 +42,48 @@ const amenities = [
   { icon: Gamepad2, title: "ALL GAMES PRE-INSTALLED", desc: "Trending titles ready to play — no downloads." },
 ];
 
-const SetupsPage = () => (
+const SetupsPage = () => {
+  useEffect(() => {
+    updatePageSEO({
+      ...pageSEOConfig.setups,
+      canonicalUrl: "https://battletechgaming.com/setups",
+    });
+  }, []);
+
+  return (
   <div className="pt-20">
     {/* Header */}
     <section className="py-16 md:py-24 bg-surface-dark carbon-texture">
       <div className="container mx-auto px-4 md:px-8 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <p className="section-label mb-3">OUR ARSENAL</p>
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.45 }}
+            className="section-label mb-3"
+          >
+            OUR ARSENAL
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.55 }}
+            className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4"
+          >
             SETUPS & SPECS
-          </h1>
-          <p className="text-muted-foreground max-w-lg mx-auto">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.26, duration: 0.55 }}
+            className="text-muted-foreground max-w-lg mx-auto"
+          >
             Every rig at Battletech is built for performance. Choose your weapon.
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </section>
@@ -147,6 +178,7 @@ const SetupsPage = () => (
       </div>
     </section>
   </div>
-);
+  );
+};
 
 export default SetupsPage;

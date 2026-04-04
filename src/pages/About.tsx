@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Target, IndianRupee, Users, Swords } from "lucide-react";
 import cafeInterior from "@/assets/cafe-interior.jpg";
 import gamingChair from "@/assets/gaming-chair.jpg";
+import { updatePageSEO, pageSEOConfig } from "@/lib/seo";
 
 const milestones = [
   { year: "2000", event: "Battletech Gaming Cafe founded in Vidhyadhar Nagar, Jaipur." },
@@ -18,19 +20,48 @@ const values = [
   { icon: Target, title: "ALWAYS CURRENT", desc: "Latest games, latest hardware, latest experience." },
 ];
 
-const AboutPage = () => (
+const AboutPage = () => {
+  useEffect(() => {
+    updatePageSEO({
+      ...pageSEOConfig.about,
+      canonicalUrl: "https://battletechgaming.com/about",
+    });
+  }, []);
+
+  return (
   <div className="pt-20">
     {/* Header */}
     <section className="py-16 md:py-24 bg-surface-dark carbon-texture">
       <div className="container mx-auto px-4 md:px-8 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <p className="section-label mb-3">OUR STORY</p>
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="section-label mb-3"
+          >
+            OUR STORY
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.55, ease: "easeOut" }}
+            className="font-heading text-4xl md:text-6xl font-bold text-foreground mb-4"
+          >
             ABOUT BATTLETECH
-          </h1>
-          <p className="text-muted-foreground max-w-lg mx-auto">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.55, ease: "easeOut" }}
+            className="text-muted-foreground max-w-lg mx-auto"
+          >
             25 years of powering Jaipur's gaming community.
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </section>
@@ -145,6 +176,7 @@ const AboutPage = () => (
       </div>
     </section>
   </div>
-);
+  );
+};
 
 export default AboutPage;

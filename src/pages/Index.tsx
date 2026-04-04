@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import HeroSection from "@/components/home/HeroSection";
 import StatsBar from "@/components/home/StatsBar";
 import AboutSection from "@/components/home/AboutSection";
@@ -7,19 +8,29 @@ import PricingSection from "@/components/home/PricingSection";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import GallerySection from "@/components/home/GallerySection";
 import LocationSection from "@/components/home/LocationSection";
+import { updatePageSEO, pageSEOConfig } from "@/lib/seo";
 
-const Index = () => (
-  <>
-    <HeroSection />
-    <StatsBar />
-    <AboutSection />
-    <SetupsSection />
-    <GamesLibrary />
-    <PricingSection />
-    <ReviewsSection />
-    <GallerySection />
-    <LocationSection />
-  </>
-);
+const Index = () => {
+  useEffect(() => {
+    updatePageSEO({
+      ...pageSEOConfig.home,
+      canonicalUrl: "https://battletechgaming.com/",
+    });
+  }, []);
+
+  return (
+    <>
+      <HeroSection />
+      <StatsBar />
+      <AboutSection />
+      <SetupsSection />
+      <GamesLibrary />
+      <PricingSection />
+      <ReviewsSection />
+      <GallerySection />
+      <LocationSection />
+    </>
+  );
+};
 
 export default Index;

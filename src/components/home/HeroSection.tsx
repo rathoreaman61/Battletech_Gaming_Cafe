@@ -16,21 +16,25 @@ const HeroSection = () => (
     {/* Content */}
     <div className="relative z-10 container mx-auto px-4 text-center">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 40, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h1 className="font-heading font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wider leading-[0.9] text-foreground mb-6">
-          BATTLETECH
-          <br />
-          <span className="text-primary">GAMING CAFE</span>
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="font-heading font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wider leading-[0.9] text-foreground mb-6"
+        >
+          <span className="block">BATTLETECH</span>
+          <span className="block text-primary">GAMING CAFE</span>
+        </motion.h1>
       </motion.div>
 
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
+        transition={{ delay: 0.22, duration: 0.6, ease: "easeOut" }}
         className="font-heading text-base md:text-lg tracking-[0.2em] text-white mb-10 max-w-xl mx-auto"
       >
         JAIPUR'S PREMIER ESPORTS & GAMING HUB — VIDHYADHAR NAGAR

@@ -36,7 +36,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-3 font-heading text-xl md:text-2xl font-bold tracking-wider text-foreground">
-            <img src="/logo.png" alt="Battletech Logo" className="h-[8rem] md:h-[10rem] w-auto object-contain mt-[15px] drop-shadow-lg" />
+            <img src={import.meta.env.BASE_URL + "logo.png"} alt="Battletech Logo" className="h-[8rem] md:h-[10rem] w-auto object-contain mt-[15px] drop-shadow-lg" />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
