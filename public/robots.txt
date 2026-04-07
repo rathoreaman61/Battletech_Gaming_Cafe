@@ -16,20 +16,4 @@ Disallow: /search
 Disallow: /private/
 
 # XML Sitemap location for search engines
-Sitemap: https://rathoreaman61.github.io/Battletech-Gaming-Cafe/sitemap.xml
-
-# Google-specific
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Bing-specific
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+Sitemap: https://battletechgaming.com/sitemap.xml

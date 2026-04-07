@@ -10,7 +10,14 @@ const NotFound = () => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
     updatePageSEO({
       ...pageSEOConfig.notFound,
-      canonicalUrl: "https://battletechgaming.com/404",
+      robots: "noindex,nofollow",
+      structuredData: {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "404 Page Not Found",
+        description: pageSEOConfig.notFound.description,
+        url: `https://battletechgaming.com${location.pathname}`,
+      },
     });
   }, [location.pathname]);
 

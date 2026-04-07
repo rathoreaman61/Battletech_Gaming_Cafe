@@ -8,13 +8,21 @@ import PricingSection from "@/components/home/PricingSection";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import GallerySection from "@/components/home/GallerySection";
 import LocationSection from "@/components/home/LocationSection";
-import { updatePageSEO, pageSEOConfig } from "@/lib/seo";
+import { buildBreadcrumbSchema, updatePageSEO, pageSEOConfig } from "@/lib/seo";
 
 const Index = () => {
   useEffect(() => {
     updatePageSEO({
       ...pageSEOConfig.home,
-      canonicalUrl: "https://battletech-gaming-cafe.vercel.app/",
+      canonicalUrl: "https://battletechgaming.com/",
+      structuredData: [
+        ...(Array.isArray(pageSEOConfig.home.structuredData)
+          ? pageSEOConfig.home.structuredData
+          : [pageSEOConfig.home.structuredData]),
+        buildBreadcrumbSchema([
+          { name: "Home", url: "https://battletechgaming.com/" },
+        ]),
+      ],
     });
   }, []);
 

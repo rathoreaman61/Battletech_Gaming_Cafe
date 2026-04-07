@@ -4,7 +4,7 @@ const FloatingWhatsApp = () => {
       href="https://wa.me/919660034000?text=Hi%2C%20I%20am%20interested%20in%20booking%20a%20gaming%20setup%20at%20Battletech%20Gaming%20Cafe.%20Please%20share%20details."
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:scale-110 active:scale-95 transition-transform duration-200 group"
+      className="no-global-button-effects fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:scale-110 active:scale-95 transition-transform duration-200 group"
       aria-label="Chat on WhatsApp"
     >
       <svg

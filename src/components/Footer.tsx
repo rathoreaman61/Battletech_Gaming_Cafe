@@ -23,10 +23,10 @@ const footerLinks = [
 
 const Footer = () => (
   <footer className="bg-surface-dark border-t border-border">
-    <div className="container mx-auto px-4 md:px-8 py-12 md:py-16">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+    <div className="container mx-auto px-4 py-12 md:px-8 md:py-16">
+      <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:items-start md:text-left">
         <div>
-          <h3 className="font-heading text-2xl font-bold tracking-wider text-foreground mb-2">
+          <h3 className="mb-2 font-heading text-2xl font-bold tracking-wider text-foreground">
             BATTLETECH
           </h3>
           <p className="text-muted-foreground text-sm">
@@ -34,7 +34,7 @@ const Footer = () => (
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-x-6 gap-y-2">
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 md:justify-start">
           {footerLinks.map((link) => (
             <Link
               key={link.path}
@@ -46,7 +46,7 @@ const Footer = () => (
           ))}
         </div>
 
-        <div className="flex md:justify-end items-center gap-6">
+        <div className="flex items-center justify-center gap-6 md:justify-end">
           <a
             href="https://facebook.com/btgcvdn"
             target="_blank"
@@ -77,7 +77,7 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-center md:flex-row md:text-left">
         <p className="text-text-dim text-xs">
           © 2025 Battletech Gaming Cafe, Jaipur. All rights reserved.
         </p>
