@@ -11,10 +11,10 @@ import {
   Wind,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import gamingPcImg from "@/assets/gaming-pc.jpg";
-import keyboardImg from "@/assets/keyboard-closeup.jpg";
-import monitorImg from "@/assets/monitor-game.jpg";
-import setupRowImg from "@/assets/setup-row.jpg";
+import gamingPcImg from "@/assets/gaming-pc.webp";
+import keyboardImg from "@/assets/keyboard-closeup.webp";
+import monitorImg from "@/assets/monitor-game.webp";
+import setupRowImg from "@/assets/setup-row.webp";
 import { buildBreadcrumbSchema, pageSEOConfig, updatePageSEO } from "@/lib/seo";
 
 const rigs = [
@@ -121,8 +121,11 @@ const SetupsPage = () => {
           <img
             src={setupRowImg}
             alt="Battletech gaming setup row"
+            width="1920"
+            height="1080"
             className="h-full w-full object-cover opacity-20"
             loading="eager"
+            fetchPriority="high"
           />
           <div className="scanline-overlay absolute inset-0 opacity-60" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,107,0,0.14),transparent_32%),linear-gradient(180deg,rgba(0,0,0,0.3),rgba(0,0,0,0.8))]" />
@@ -223,6 +226,8 @@ const SetupsPage = () => {
                   <img
                     src={gamingPcImg}
                     alt="Battletech gaming hardware"
+                    width="1024"
+                    height="768"
                     className="aspect-[4/3] w-full object-cover"
                     loading="lazy"
                   />
@@ -285,6 +290,8 @@ const SetupsPage = () => {
                   <img
                     src={rig.image}
                     alt={rig.name}
+                    width="1280"
+                    height="800"
                     className="aspect-[16/10] w-full object-cover"
                     loading="lazy"
                   />
@@ -412,6 +419,8 @@ const SetupsPage = () => {
                 <img
                   src={setupRowImg}
                   alt="Row of Battletech setups"
+                  width="1920"
+                  height="1080"
                   className="aspect-[16/8] w-full object-cover"
                   loading="lazy"
                 />

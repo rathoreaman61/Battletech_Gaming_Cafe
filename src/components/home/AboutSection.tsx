@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Cpu, Shield, Snowflake } from "lucide-react";
-import cafeInterior from "@/assets/cafe-interior.jpg";
+import cafeInterior from "@/assets/cafe-interior.webp";
 
 const highlights = [
   {

@@ -12,12 +12,12 @@ const GlobalUiSound = () => {
 
   useEffect(() => {
     const hoverAudio = new Audio(import.meta.env.BASE_URL + "sounds/allbuttonhover.mp3");
-    hoverAudio.preload = "auto";
+    hoverAudio.preload = "none";
     hoverAudio.volume = 0.22;
     hoverAudioRef.current = hoverAudio;
 
     const clickAudio = new Audio(import.meta.env.BASE_URL + "sounds/allpageclickbtn.mp3");
-    clickAudio.preload = "auto";
+    clickAudio.preload = "none";
     clickAudio.volume = 0.22;
     clickAudioRef.current = clickAudio;
 
@@ -64,6 +64,9 @@ const GlobalUiSound = () => {
     };
 
     const handlePointerOver = (event: PointerEvent) => {
+      // Prevent hover sounds on touch devices
+      if (event.pointerType !== "mouse") return;
+
       const interactiveTarget =
         event.target instanceof Element ? event.target.closest(HOVER_SELECTOR) : null;
 
@@ -78,6 +81,14 @@ const GlobalUiSound = () => {
     const handlePointerDown = (event: PointerEvent) => {
       unlockAudio();
       if (isInsideNavbar(event.target)) return;
+      
+      // On mobile/touch devices, only play click sound on interactive elements
+      const isTouch = event.pointerType !== "mouse" || window.innerWidth <= 768 || matchMedia("(pointer: coarse)").matches;
+      if (isTouch) {
+        const interactiveTarget = event.target instanceof Element ? event.target.closest(HOVER_SELECTOR) : null;
+        if (!interactiveTarget) return;
+      }
+
       replaySound(clickAudioRef.current, lastClickPlayedAtRef);
     };
 

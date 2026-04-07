@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { IndianRupee, ShieldCheck, Swords, Target, Users } from "lucide-react";
-import cafeInterior from "@/assets/cafe-interior.jpg";
-import gamingChair from "@/assets/gaming-chair.jpg";
+import cafeInterior from "@/assets/cafe-interior.webp";
+import gamingChair from "@/assets/gaming-chair.webp";
 import { buildBreadcrumbSchema, pageSEOConfig, updatePageSEO } from "@/lib/seo";
 
 const milestones = [
@@ -79,8 +79,11 @@ const AboutPage = () => {
           <img
             src={cafeInterior}
             alt="Battletech cafe interior"
+            width="1920"
+            height="1080"
             className="h-full w-full object-cover opacity-20"
             loading="eager"
+            fetchPriority="high"
           />
           <div className="scanline-overlay absolute inset-0 opacity-60" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,107,0,0.14),transparent_30%),linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.8))]" />
@@ -154,6 +157,8 @@ const AboutPage = () => {
                   <img
                     src={gamingChair}
                     alt="Battletech gaming chair and setup"
+                    width="1024"
+                    height="768"
                     className="aspect-[4/3] w-full object-cover"
                     loading="lazy"
                   />
@@ -195,6 +200,8 @@ const AboutPage = () => {
                 <img
                   src={cafeInterior}
                   alt="Battletech interior wide shot"
+                  width="1280"
+                  height="960"
                   className="aspect-[4/3] w-full object-cover"
                   loading="lazy"
                 />

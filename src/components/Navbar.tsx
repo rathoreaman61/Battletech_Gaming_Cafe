@@ -24,23 +24,23 @@ const Navbar = () => {
   useEffect(() => {
     logoAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/soundforlogo.mp3");
     logoAudioRef.current.volume = 0.3;
-    logoAudioRef.current.preload = "auto";
+    logoAudioRef.current.preload = "none";
 
     logoClickAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/clicklogo.mp3.mp3");
     logoClickAudioRef.current.volume = 0.4;
-    logoClickAudioRef.current.preload = "auto";
+    logoClickAudioRef.current.preload = "none";
 
     clickAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/clickHSACB.mp3");
     clickAudioRef.current.volume = 0.4;
-    clickAudioRef.current.preload = "auto";
+    clickAudioRef.current.preload = "none";
 
     navAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/HomeSetup.AboutContact.mp3");
     navAudioRef.current.volume = 0.25;
-    navAudioRef.current.preload = "auto";
+    navAudioRef.current.preload = "none";
 
     bookNowAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/booknow.mp3");
     bookNowAudioRef.current.volume = 0.25;
-    bookNowAudioRef.current.preload = "auto";
+    bookNowAudioRef.current.preload = "none";
   }, []);
 
   useEffect(() => {
@@ -86,8 +86,17 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -158,8 +167,10 @@ const Navbar = () => {
               className="group relative flex items-center"
             >
               <img 
-                src={import.meta.env.BASE_URL + "logo.png"} 
+                src={import.meta.env.BASE_URL + "logo.webp"} 
                 alt="Battletech Logo" 
+                width="200"
+                height="96"
                 className="relative z-10 mt-1 h-[5.35rem] w-auto max-w-[11rem] object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.48)] transition-all duration-300 group-hover:drop-shadow-[0_18px_36px_rgba(255,122,26,0.16)] sm:h-[6.1rem] sm:max-w-[12.5rem] md:mt-2 md:h-[9.4rem] md:max-w-none" 
               />
             </motion.div>

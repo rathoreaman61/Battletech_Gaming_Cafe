@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import homepageBg from "@/assets/homepage (1).png";
 
 const HeroSection = () => (
   <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-28 pb-20 sm:pt-32 sm:pb-24">
     {/* Background */}
     <div className="absolute inset-0 overflow-hidden">
       <motion.img
-        src={homepageBg}
+        src="/hero-bg.webp"
         alt="Battletech Gaming Cafe interior"
         className="w-full h-full object-cover"
-        width={1920}
-        height={1080}
+        width="1920"
+        height="1080"
+        fetchPriority="high"
+        loading="eager"
         initial={{ scale: 1, y: 0 }}
         animate={{ y: [0, -12, 0], scale: [1, 1.02, 1] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}

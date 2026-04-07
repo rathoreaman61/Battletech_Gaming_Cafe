@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import img2 from "@/assets/cafe-interior.jpg";
-import img8 from "@/assets/ceiling-lights.jpg";
-import img1 from "@/assets/hero-bg.jpg";
-import img3 from "@/assets/keyboard-closeup.jpg";
-import img4 from "@/assets/monitor-game.jpg";
-import img6 from "@/assets/peripherals.jpg";
-import img5 from "@/assets/gaming-pc.jpg";
-import img7 from "@/assets/setup-row.jpg";
+import img2 from "@/assets/cafe-interior.webp";
+import img8 from "@/assets/ceiling-lights.webp";
+import img1 from "@/assets/hero-bg.webp";
+import img3 from "@/assets/keyboard-closeup.webp";
+import img4 from "@/assets/monitor-game.webp";
+import img6 from "@/assets/peripherals.webp";
+import img5 from "@/assets/gaming-pc.webp";
+import img7 from "@/assets/setup-row.webp";
+
 
 const images = [
   { src: img1, alt: "Gaming cafe setup overview", label: "Main floor" },
@@ -66,6 +67,8 @@ const GallerySection = () => (
               <img
                 src={img.src}
                 alt={img.alt}
+                width="800"
+                height="600"
                 className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
                   i === 0 ? "aspect-[4/5] sm:aspect-[4/4.5] md:aspect-auto" : "aspect-[4/3]"
                 }`}

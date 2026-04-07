@@ -14,6 +14,8 @@ const ClickEffect: React.FC = () => {
 
   useEffect(() => {
     const handlePointerDown = (e: PointerEvent) => {
+      if (window.innerWidth < 768) return;
+
       document.body.classList.add('sniper-shot-active');
       document.body.classList.remove('sniper-shot-fired');
 
@@ -63,7 +65,7 @@ const ClickEffect: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden hidden md:block">
       <AnimatePresence>
         {clicks.map((click) => (
           <motion.div

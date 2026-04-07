@@ -14,7 +14,7 @@ interface SEOConfig {
 }
 
 export const SITE_URL = "https://battletechgaming.com";
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.png`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.webp`;
 export const BUSINESS_NAME = "Battletech Gaming Cafe";
 
 const defaultRobots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";

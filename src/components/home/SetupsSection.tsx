@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Coffee, Cpu, Monitor } from "lucide-react";
-import keyboardImg from "@/assets/keyboard-closeup.jpg";
-import monitorImg from "@/assets/monitor-game.jpg";
-import snacksImg from "@/assets/snacks-gaming.jpg";
+import keyboardImg from "@/assets/keyboard-closeup.webp";
+import monitorImg from "@/assets/monitor-game.webp";
+import snacksImg from "@/assets/snacks-gaming.webp";
 
 const setups = [
   {
@@ -79,6 +79,8 @@ const SetupsSection = () => (
               <img
                 src={setup.image}
                 alt={setup.title}
+                width="800"
+                height="600"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
