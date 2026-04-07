@@ -19,6 +19,7 @@ const Navbar = () => {
   const clickAudioRef = useRef<HTMLAudioElement | null>(null);
   const navAudioRef = useRef<HTMLAudioElement | null>(null);
   const bookNowAudioRef = useRef<HTMLAudioElement | null>(null);
+  const isAudioUnlockedRef = useRef(false);
 
   useEffect(() => {
     logoAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/soundforlogo.mp3");
@@ -40,6 +41,48 @@ const Navbar = () => {
     bookNowAudioRef.current = new Audio(import.meta.env.BASE_URL + "sounds/booknow.mp3");
     bookNowAudioRef.current.volume = 0.25;
     bookNowAudioRef.current.preload = "auto";
+  }, []);
+
+  useEffect(() => {
+    const unlockAudio = () => {
+      if (isAudioUnlockedRef.current) return;
+
+      const audioElements = [
+        logoAudioRef.current,
+        logoClickAudioRef.current,
+        clickAudioRef.current,
+        navAudioRef.current,
+        bookNowAudioRef.current,
+      ].filter((audio): audio is HTMLAudioElement => Boolean(audio));
+
+      if (!audioElements.length) return;
+
+      isAudioUnlockedRef.current = true;
+
+      audioElements.forEach((audio) => {
+        audio.muted = true;
+        audio.currentTime = 0;
+
+        audio.play()
+          .then(() => {
+            audio.pause();
+            audio.currentTime = 0;
+            audio.muted = false;
+          })
+          .catch(() => {
+            isAudioUnlockedRef.current = false;
+            audio.muted = false;
+          });
+      });
+    };
+
+    window.addEventListener("pointerdown", unlockAudio, true);
+    window.addEventListener("keydown", unlockAudio, true);
+
+    return () => {
+      window.removeEventListener("pointerdown", unlockAudio, true);
+      window.removeEventListener("keydown", unlockAudio, true);
+    };
   }, []);
 
   useEffect(() => {

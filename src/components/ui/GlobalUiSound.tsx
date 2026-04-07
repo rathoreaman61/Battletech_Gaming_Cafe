@@ -8,6 +8,7 @@ const GlobalUiSound = () => {
   const clickAudioRef = useRef<HTMLAudioElement | null>(null);
   const lastHoverPlayedAtRef = useRef(0);
   const lastClickPlayedAtRef = useRef(0);
+  const isAudioUnlockedRef = useRef(false);
 
   useEffect(() => {
     const hoverAudio = new Audio(import.meta.env.BASE_URL + "sounds/allbuttonhover.mp3");
@@ -19,6 +20,28 @@ const GlobalUiSound = () => {
     clickAudio.preload = "auto";
     clickAudio.volume = 0.22;
     clickAudioRef.current = clickAudio;
+
+    const unlockAudio = () => {
+      if (isAudioUnlockedRef.current) return;
+
+      isAudioUnlockedRef.current = true;
+
+      [hoverAudio, clickAudio].forEach((audio) => {
+        audio.muted = true;
+        audio.currentTime = 0;
+
+        audio.play()
+          .then(() => {
+            audio.pause();
+            audio.currentTime = 0;
+            audio.muted = false;
+          })
+          .catch(() => {
+            isAudioUnlockedRef.current = false;
+            audio.muted = false;
+          });
+      });
+    };
 
     const isInsideNavbar = (target: EventTarget | null) =>
       target instanceof Element && Boolean(target.closest("nav"));
@@ -53,16 +76,19 @@ const GlobalUiSound = () => {
     };
 
     const handlePointerDown = (event: PointerEvent) => {
+      unlockAudio();
       if (isInsideNavbar(event.target)) return;
       replaySound(clickAudioRef.current, lastClickPlayedAtRef);
     };
 
     document.addEventListener("pointerover", handlePointerOver, true);
     document.addEventListener("pointerdown", handlePointerDown, true);
+    document.addEventListener("keydown", unlockAudio, true);
 
     return () => {
       document.removeEventListener("pointerover", handlePointerOver, true);
       document.removeEventListener("pointerdown", handlePointerDown, true);
+      document.removeEventListener("keydown", unlockAudio, true);
       hoverAudio.pause();
       hoverAudio.currentTime = 0;
       clickAudio.pause();
